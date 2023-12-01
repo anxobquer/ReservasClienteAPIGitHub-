@@ -1,0 +1,39 @@
+﻿@using ClienteApi.Models;
+@model List<ModSerServicios>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="widt=device-width" />
+        <title>Servicios</title>
+    </head>
+    <body>
+        <div class="text-center">
+            <h1 class="display-4">Mantenimiento de Servicios</h1>
+            <p>Administración de Servicios </p>
+        @{
+            await Html.RenderPartialAsync("~/Views/Shared/_msj_success_warning.cshtml");
+        }
+        </div>
+
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4" id="div_form">
+                    @*Codigo para mostrar formulario de mantenimiento*@
+                    @{
+                        await Html.RenderPartialAsync("~/Views/SerServicios/_RegistrarServicio.cshtml");
+                    }
+                </div>
+                <div class="col-8" id="div_body">
+                    @*Lista*@
+                    @{
+                        await Html.RenderPartialAsync("~/Views/SerServicios/_ListaServicios.cshtml");
+                    }
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

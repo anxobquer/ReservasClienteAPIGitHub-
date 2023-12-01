@@ -1,0 +1,81 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ClienteApi
+build_property.RootNamespace = ClienteApi
+build_property.ProjectDir = D:\net_core\ClienteApi\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\net_core\ClienteApi
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/net_core/ClienteApi/Views/Dashboard/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Dashboard/DashboardLink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZExpbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Home/ActualizarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY3R1YWxpemFyQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Home/RegistrarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RyYXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Home/_ListaClientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTGlzdGFDbGllbnRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Home/_Script_clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfU2NyaXB0X2NsaWVudGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/SerServicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VyU2VydmljaW9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/SerServicios/_listaServicios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VyU2VydmljaW9zXF9saXN0YVNlcnZpY2lvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/SerServicios/_MostrarServicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VyU2VydmljaW9zXF9Nb3N0cmFyU2VydmljaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/SerServicios/_RegistrarServicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VyU2VydmljaW9zXF9SZWdpc3RyYXJTZXJ2aWNpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/SerServicios/_script_servicios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VyU2VydmljaW9zXF9zY3JpcHRfc2VydmljaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Shared/_msj_success_warning.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tc2pfc3VjY2Vzc193YXJuaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Shared/_ScriptMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TY3JpcHRNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/net_core/ClienteApi/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-rf6o8l756p

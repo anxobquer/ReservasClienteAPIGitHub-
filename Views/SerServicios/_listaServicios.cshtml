@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+@{
+    await Html.RenderPartialAsync("~/Views/SerServicios/_script_servicios.cshtml");
+}
+<div class="card">
+    <div class="card-header card-primary card-outline text-center">
+        <h3 class="card-title">Lista de Servicios</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover" id="lista_servicios">
+                <thead>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Descripción</th>
+                        <th class="text-center">Precio $</th>
+                        <th class="text-center">Foto</th>
+                        <th class="text-center">Última modificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="fila_@item.SerCodigo">
+                            <td class="text-center">
+                                <button id="@item.SerCodigo" class="btn btn-warning btn-sm btn_editar"
+                                        data-url="@Url.Action("BuscarServicio", "SerServicios")">
+                                    <i class="bi-folder-plus"></i> Editar
+                                </button>
+                                <button id="@item.SerCodigo" class="btn btn-danger btn-sm btn_eliminar"
+                                        data-url="@Url.Action("EliminarServicio", "SerServicios")">
+                                    <i class="bi-folder-plus"></i> Eliminar
+                                </button>
+                            </td>
+                            <td>@item.SerCodigo</td>
+                            <td>@item.SerNombre</td>
+                            <td>@item.SerDescripcion</td>
+                            <td>@item.SerPrecio</td>
+                            <td>
+                                <img class="profile-user-img img-fluid"
+                                id="imgPerfil"
+                                src="@item.Ruta"
+                                alt="User profile picture">
+                            </td>
+                            <td>@item.SerUltModificacion</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Descripción</th>
+                        <th class="text-center">Precio $</th>
+                        <th class="text-center">Foto</th>
+                        <th class="text-center">Última modificación</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#lista_servicios").DataTable();
+    });
+</script>
+
+@{
+    await Html.RenderPartialAsync("~/Views/SerServicios/_Script_servicios.cshtml");
+}

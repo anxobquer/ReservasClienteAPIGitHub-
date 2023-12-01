@@ -1,0 +1,53 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<div class="card card-success card-outline">
+    <div class="card-header text-center">
+        <h3 class="card-title">Actualizar datos del cliente</h3>
+    </div>
+    <div class="card-body box-profile">
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-2">
+                    <label class="form-label">Código</label>
+                    <input type="text" class="form-control form-control-sm" id="txtCodigo" readonly value="@Model.CliCodigo" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control form-control-sm" id="txtNombres" value="@Model.CliNombres" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Apellidos</label>
+                    <input type="text" class="form-control form-control-sm" id="txtApellidos" value="@Model.CliApellidos" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Teléfono</label>
+                    <input type="text" class="form-control form-control-sm" id="txtTelefono" value="@Model.CliTelefono" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Email </label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">@@</span>
+                        <input type="text" class="form-control" id="txtEmail" value="@Model.CliEmail" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-grid grap-2 d-md-flex justify-content-md-end">
+        <button id="btn_cancelar" class="btn btn-default btn-sm"
+                data-url="@Url.Action("NuevoCliente", "Home")">
+            <i class="bi-eraser-plus"></i> Cancelar
+        </button>
+        <button id="btn_actualizar" class="btn btn-warning btn-sm"
+                data-url="@Url.Action("ActualizarCliente", "Home")">
+            <i class="bi-folder-plus"></i> Guardar
+        </button>
+    </div>
+</div>
+@{
+    await Html.RenderPartialAsync("~/Views/Home/_Script_clientes.cshtml");
+}

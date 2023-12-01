@@ -1,0 +1,201 @@
+﻿<script>
+    $(function () {
+        $('#btn_guardar').off('click');
+        $('#btn_guardar').on('click', function () {
+            data_url = ($(this).attr("data-url"));
+            var fileData = new FormData();
+
+            var uploadFile = $('#inputImg')[0].files[0];
+
+            fileData.append("SerCodigo", 0);
+            fileData.append("SerNombre", $('#txtNombre').val());
+            fileData.append("SerDescripcion", $('#txtDescripcion').val());
+            fileData.append("SerPrecio", $('#txtPrecio').val());
+            fileData.append("Imagen", uploadFile);
+
+            $.ajax({
+                url: data_url,
+                type: "POST",
+                data: fileData,
+                processData: false,
+                contentType: false
+            }).done(function (data) {
+                if (data[0] <= 0) {
+                    $("#warning-msj").html(data[1]);
+                    $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+
+                    $("#btn_guardar").prop("disabled", false);
+                }
+                else {
+                    $("#success-msj").html(data[1]);
+                    $("#success-alert").fadeIn(300).delay(3000).slideUp(400);
+
+                    $("#txtNomrbe").val("");
+                    $("#txtDescripcion").val("");
+                    $("#txtPrecio").val("");
+
+                    $("#btn_guardar").prop("disabled", false);
+
+                    // Recargamos la tabla para mostrar el nuevo registro.
+                    $.get('@Url.Action("MostrarLista", "SerServicios")', {}, function (result) {
+                        $("#div_body").html(result).fadeIn(300);
+                    }).fail(function (result) {
+                        $("#warning-msj").html("Error inesperado al intentar cargar los registros");
+                        $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                    });
+                }
+            }).fail(function (data) {
+                $("#warning-msj").html(data[1]);
+                $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                $("#btn_guardar").prop("disabled", false);
+            });
+        });
+
+        $('#inputImg').off('change');
+        $('#inputImg').on('change', function () {
+            var fileInput = $('#inputImg')[0];
+
+            var filePath = this.value;
+            var allowedExtensions = /(.jpg|.jpeg|.png)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Extensión no permitida. Debe utilizar: .jpeg/, .jpg/.png.');
+                fileInput.value = '';
+                $("#imgPerfil").attr("src", "Imagenes/none.png");
+                return false;
+            } else {
+                // image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#imgPerfil").attr("src", e.target.result);
+                    };
+
+                    reader.readAsDataURL(fileInput.files[0]);
+                };
+                return true;
+            }
+        });
+
+        $('#divImg').off('click');
+        $('#divImg').on('click', function () {
+            $("#inputImg").trigger('click');
+        });
+
+        $('.btn_editar').off('click');
+        $('.btn_editar').on('click', function (e) {
+            data_url = $(this).attr("data-url");
+            codigo = $(this).attr("id");
+
+            $.get(data_url, { codigo }, function (result) {
+                $("#div_form").html(result).fadeIn(300)
+            }).fail(function (result) {
+                $("#warning-msj").html("Error inesperado al intentar cargar los registros");
+                $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+            })
+        });
+
+        $('#btn_actualizar').off('click');
+        $('#btn_actualizar').on('click', function () {
+            data_url = ($(this).attr("data-url"));
+            var fileData = new FormData();
+
+            var uploadFile = $('#inputImg')[0].files[0];
+
+            fileData.append("SerCodigo", $('#txtCodigo').val());
+            fileData.append("SerNombre", $('#txtNombre').val());
+            fileData.append("SerDescripcion", $('#txtDescripcion').val());
+            fileData.append("SerPrecio", $('#txtPrecio').val());
+            fileData.append("Imagen", uploadFile);
+
+            $.ajax({
+                url: data_url,
+                type: "PUT",
+                data: fileData,
+                processData: false,
+                contentType: false
+            }).done(function (data) {
+                if (data[0] <= 0) {
+                    $("#warning-msj").html(data[1]);
+                    $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+
+                    $("#btn_actualizar").prop("disabled", false);
+                }
+                else {
+                    $("#success-msj").html(data[1]);
+                    $("#success-alert").fadeIn(300).delay(3000).slideUp(400);
+
+                    $("#txtNomrbe").val("");
+                    $("#txtDescripcion").val("");
+                    $("#txtprecio").val("");
+
+                    $("#btn_actualizar").prop("disabled", false);
+                    Mostrar_form_nuevo('@Url.Action("NuevoServicio", "SerServicios")');
+
+                    // Recargamos la tabla para mostrar el nuevo registro.
+                    $.get('@Url.Action("MostrarLista", "SerServicios")', {}, function (result) {
+                        $("#div_body").html(result).fadeIn(300);
+                    }).fail(function (result) {
+                        $("#warning-msj").html("Error inesperado al intentar cargar los registros");
+                        $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                    });
+                };
+            }).fail(function (data) {
+                $("#warning-msj").html(data[1]);
+                $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                $("#btn_actualizar").prop("disabled", false);
+            });
+        });
+
+        $('.btn_eliminar').off('click');
+        $('.btn_eliminar').on('click', function (e) {
+            data_url = $(this).attr("data-url");
+            codigo = $(this).attr("id");
+
+            if (confirm("¿Está seguro de eliminar este registro?")) {
+                $.ajax({
+                    url: data_url,
+                    type: "delete",
+                    data: {
+                        codigo: codigo,
+                    },
+                }).done(function (data) {
+                    if (data[0] <= 0) {
+                        $("#warning-msj").html(data[1]);
+                        $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                    }
+                    else {
+                        $("#fila_" + codigo).remove();
+                        $("#success-msj").html(data[1]);
+                        $("#success-alert").fadeIn(300).delay(3000).slideUp(400);
+                    }
+                }).fail(function (data) {
+                    $("#warning-msj").html(data[1]);
+                    $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+                });
+            }
+        });
+
+        $('#btn_cancelar').off('click');
+        $('#btn_cancelar').on('click', function (e) {
+            data_url = $(this).attr("data-url");
+            Mostrar_form_nuevo(data_url);
+        });
+
+        $('#btn_limpiar').off('click');
+        $('#btn_limpiar').on('click', function (e) {
+            $("#txtNomrbe").val("");
+            $("#txtDescripcion").val("");
+            $("#txtprecio").val("");
+            $("#imgPerfil").attr("src", "Imagenes/none.png");
+        });
+
+        function Mostrar_form_nuevo(data_url) {
+            $.get(data_url, {}, function (result) {
+                $("#div_form").html(result).fadeIn(300);
+            }).fail(function (result) {
+                $("#warning-msj").html("Error inesperado al intentar cargar los registros");
+                $("#warning-alert").fadeIn(300).delay(3000).slideUp(400);
+            });
+        }
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="card card-success card-outline">
+    <div class="card-header text-center">
+        <h3 class="card-title">Registrar nuevo cliente</h3>
+    </div>
+    <div class="card-body box-profile">
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-2">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control form-control-sm" id="txtNombres" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Apellidos</label>
+                    <input type="text" class="form-control form-control-sm" id="txtApellidos" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Teléfono</label>
+                    <input type="text" class="form-control form-control-sm" id="txtTelefono"/>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Email </label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">@@</span>
+                        <input type="text" class="form-control" id="txtEmail" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-grid grap-2 d-md-flex justify-content-md-end">
+        <button id="btn_limpiar" class="btn btn-default btn-sm">
+            <i class="bi-eraser-fill"></i> Limpiar
+        </button>
+        <button id="btn_guardar" class="btn btn-success btn-sm"
+                data-url="@Url.Action("RegistrarCliente", "Home")">
+            <i class="bi-folder-plus"></i> Guardar
+        </button>
+    </div>
+</div>
+@{
+    await Html.RenderPartialAsync("~/Views/Home/_Script_clientes.cshtml");
+}

@@ -1,0 +1,35 @@
+﻿@using ClienteApi.Models;
+@model List<ModClieClientes>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Mantenimiento de Clientes</h1>
+    <p>Consumo de datos desde API REST </p>
+
+</div>
+
+<div class="col-12">
+    <div class="row">
+        <div class="row">
+            @{
+                await Html.RenderPartialAsync("~/Views/Shared/_msj_success_warning.cshtml");
+            }
+        </div>
+        <div class="col-4" id="div_form">
+            @*Codigo para mostrar formulario de mantenimiento*@
+            @{
+                await Html.RenderPartialAsync("~/Views/Home/RegistrarCliente.cshtml");
+            }
+        </div>
+        <div class="col-8" id="div_body">
+            @*Aqui va el codigo lista de clientes*@
+            @{
+                await Html.RenderPartialAsync("~/Views/Home/_ListaClientes.cshtml");
+            }
+        </div>
+    </div>
+</div>

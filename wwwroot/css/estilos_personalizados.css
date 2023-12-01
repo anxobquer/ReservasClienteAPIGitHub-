@@ -1,0 +1,16 @@
+﻿.alert_flotante{
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-left: 234px;
+    width: 410px;
+    z-index: 9999;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.enlace{
+    cursor: pointer;
+}

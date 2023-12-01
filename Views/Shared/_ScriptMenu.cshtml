@@ -1,0 +1,15 @@
+﻿<script>
+    $(function(){
+
+        $('.menu').off('click');
+        $('.menu').on('click', function(e){
+            var data_url = $(this).attr('data-url');
+            $.get(data_url, {}, function(result){
+                $("#div_menu_principal").html(result).fadeIn(300);
+            }).fail(function (result){
+                $("#success-msj").html("Error inesperado al intentar cargar el formulario.");
+                $("#success-alert").fadeIn(300).delay(3000).slideUp(400);
+            });
+        });
+    });
+</script>

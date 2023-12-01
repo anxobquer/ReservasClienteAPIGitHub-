@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="card card-success card-outline">
+    <div class="card-header text-center">
+        <h3 class="card-title">Registrar nuevo servicio</h3>
+    </div>
+    <div class="form-group" style="display:none;">
+        <div class="custom-file">
+            <label class="form-label"> Foto</label>
+            <input type="file" id="inputImg" class="" />
+        </div>
+    </div>
+    <div class="card-body box-profile">
+        <div class="row">
+            <div class="col-4">
+                <div class="text-center" id="divImg" style="cursor:pointer;">
+                    <img class="profile-user-img img-fluid"
+                         id="imgPerfil"
+                         src="Imagenes/none.png"
+                         alt="User profile picture" />
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="mb-2">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control form-control-sm" id="txtNombre" />
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Nombre</label>
+                    <textarea class="form-control form-control-sm" id="txtDescripcion"></textarea>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Precio </label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" id="txtPrecio" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-grid grap-2 d-md-flex justify-content-md-end">
+        <button id="btn_limpiar" class="btn btn-default btn-sm">
+            <i class="bi-eraser-fill"></i> Limpiar
+        </button>
+        <button id="btn_guardar" class="btn btn-success btn-sm"
+                data-url="@Url.Action("RegistrarServicio", "SerServicios")">
+            <i class="bi-folder-plus"></i> Guardar
+        </button>
+    </div>
+</div>
+
+@{
+    await Html.RenderPartialAsync("~/Views/SerServicios/_script_servicios.cshtml");
+}

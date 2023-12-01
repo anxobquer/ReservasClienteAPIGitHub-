@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<div class="card">
+    <div class="card-header card-primary card-outline text-center">
+        <h3 class="card-title">Lista de Clientes</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover" id="lista_clientes">
+                <thead>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Nombres</th>
+                        <th class="text-center">Apellidos</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="fila_@item.CliCodigo">
+                            <td class="text-center">
+                                <button id="@item.CliCodigo" class="btn btn-warning btn-sm btn_editar"
+                                        data-url="@Url.Action("BuscarCliente", "Home")">
+                                    <i class="bi-folder-plus"></i> Editar
+                                </button>
+                                <button id="@item.CliCodigo" class="btn btn-danger btn-sm btn_eliminar"
+                                        data-url="@Url.Action("EliminarCliente", "Home")">
+                                    <i class="bi-folder-plus"></i> Eliminar
+                                </button>
+                            </td>
+                            <td>@item.CliCodigo</td>
+                            <td>@item.CliNombres</td>
+                            <td>@item.CliApellidos</td>
+                            <td>@item.CliTelefono</td>
+                            <td>@item.CliEmail</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="text-center"></th>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Nombres</th>
+                        <th class="text-center">Apellidos</th>
+                        <th class="text-center">Telefono</th>
+                        <th class="text-center">Email</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#lista_clientes").DataTable();
+    });
+</script>
+
+@{
+    await Html.RenderPartialAsync("~/Views/Home/_Script_clientes.cshtml");
+}
